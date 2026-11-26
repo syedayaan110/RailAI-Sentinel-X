@@ -397,7 +397,8 @@ def train_primary(path: Path, threads=4):
     print(f"[PRIMARY] holdout MAE={metrics['mae']:.2f} min | RMSE={metrics['rmse']:.2f} | R2={metrics['r2']:.3f}")
     # Final deployment model is retrained on ALL cleaned primary observations.
     final_model,_,final_backend=fit_model(X,y,X,y,weights=weights,threads=threads)
-    metrics["final_training_rows"]=int(len(df)); metrics["final_backend"]=final_backend    return final_model,metrics
+    metrics["final_training_rows"]=int(len(df)); metrics["final_backend"]=final_backend
+    return final_model,metrics
 
 
 def train_all(primary_path: Path, kaggle_zip: Optional[Path], threads=4, max_rows=None):
@@ -796,7 +797,8 @@ def read_jsonl_v5(path: Path, limit: Optional[int] = None) -> list[dict]:
     if not path.exists():
         return records
     with path.open("r", encoding="utf-8") as handle:
-        for line_no, line in enumerate(handle, 1):            if limit is not None and len(records) >= limit:
+        for line_no, line in enumerate(handle, 1):
+            if limit is not None and len(records) >= limit:
                 break
             if not line.strip():
                 continue
@@ -1194,7 +1196,6 @@ def sensor_age_seconds_v5(timestamp: str, current_time: Optional[datetime] = Non
         return max(0.0, (now_dt - dt).total_seconds())
     except Exception:
         return None
-
 def validate_sensor_readings_v5(readings: Sequence[SensorReadingV5], max_age_seconds: float = 120.0) -> dict:
     """Flag stale, invalid, out-of-range, or mutually inconsistent readings."""
     problems = []
@@ -1593,7 +1594,6 @@ def inspect_large_railway_zip_v5(path: Path) -> dict:
             except Exception as exc:
                 report["csv_schemas"].append({"member": name, "error": str(exc)})
     return report
-
 def summarize_numeric_distribution_v5(values: Iterable[Any]) -> dict:
     """Calculate robust numeric distribution statistics for a stream or series."""
     series = pd.to_numeric(pd.Series(list(values)), errors="coerce")
@@ -1993,7 +1993,8 @@ def print_quickstart_v5() -> None:
 RAILAI SENTINEL X v5 - QUICK START (Windows / VS Code)
 
 1. Put this file in a project folder.
-2. Put your labeled CSV in data\train delay data.csv OR beside this file.3. In the VS Code terminal, run:
+2. Put your labeled CSV in data\train delay data.csv OR beside this file.
+3. In the VS Code terminal, run:
    py -m pip install -r requirements.txt
 4. Train and compare models:
    py RailAI_SentinelX_v5.py --train
@@ -2392,7 +2393,8 @@ def validate_eta_inputs_v5(payload: Mapping[str, Any]) -> dict:
 
 def summarize_training_data_v5(path: Path) -> dict:
     """Return the primary dataset profile and a source hash before training."""
-    profile = data_quality_report_v5(path)    profile["sha256"] = sha256_stream_v5(path)
+    profile = data_quality_report_v5(path)
+    profile["sha256"] = sha256_stream_v5(path)
     profile["schema"] = "primary_seven_column_v1" if profile.get("primary_schema_match") else "unknown"
     return profile
 
