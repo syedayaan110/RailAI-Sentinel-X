@@ -9,7 +9,8 @@
 - Setup and usage instructions.
 - Data-folder guidance.
 - Safety, validation, and limitation notes.
-- GitHub Actions syntax and smoke-test workflow.
+- GitHub Actions syntax and smoke-test workflow on Python 3.12 and 3.15.
+- Python 3.15 configured as the default in `.python-version`.
 
 ## Verification performed before publication
 
