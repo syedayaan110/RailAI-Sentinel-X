@@ -397,7 +397,8 @@ class AdaptiveEnsemble:
         pred_matrix = np.vstack(preds)
 
         # Safety against numerical explosions
-        pred_matrix = np.nan_to_num(            pred_matrix,
+        pred_matrix = np.nan_to_num(
+            pred_matrix,
             nan=0.0,
             posinf=1e6,
             neginf=-1e6
@@ -797,6 +798,7 @@ class RiskEngine:
         if abs(speed_error) > 20:
             score += 20
             reasons.append("Large speed prediction deviation")
+
         if acceleration < -2.0:
             score += 25
             reasons.append("Abnormal deceleration")
@@ -1195,7 +1197,8 @@ class RailAI:
 
         total_delay = (
             predicted_delay
-            + incident_delay        )
+            + incident_delay
+        )
 
         eta_minutes = (
             travel_minutes
