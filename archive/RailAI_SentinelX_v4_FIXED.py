@@ -397,7 +397,8 @@ def clean_data(raw):
         "negative_distance_values_flagged": negative_distance,
         "unique_feature_states": int(len(df)),
         "duplicate_feature_groups": duplicate_feature_groups,
-        "conflicting_target_feature_groups": conflicting_groups,        "missing_values": {
+        "conflicting_target_feature_groups": conflicting_groups,
+        "missing_values": {
             str(k): int(v)
             for k, v in df.isna().sum().items()
         },
@@ -1196,6 +1197,7 @@ def run_camera():
                 (255, 255, 255),
                 2,
             )
+
             cv2.putText(
                 frame,
                 "Q / ESC = EXIT",
@@ -1594,7 +1596,8 @@ def launch_dashboard(bundle):
     ).pack(
         anchor="w",
         padx=20,
-        pady=(30, 8),    )
+        pady=(30, 8),
+    )
 
     principles = [
         "✓ Real user-supplied training data",
