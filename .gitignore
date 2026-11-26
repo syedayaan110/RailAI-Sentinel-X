@@ -1,0 +1,53 @@
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Datasets / archives
+data/*
+!data/README.md
+!data/.gitkeep
+*.csv
+*.csv.gz
+*.parquet
+*.zip
+*.7z
+
+# Model artifacts
+models/*
+!models/.gitkeep
+*.joblib
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Generated files
+reports/*
+!reports/.gitkeep
+state/*
+!state/.gitkeep
+railai_models/
+railai_events.csv
+railai_predictions.csv
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
