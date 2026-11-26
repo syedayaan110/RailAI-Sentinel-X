@@ -397,7 +397,8 @@ def train_primary(path: Path, threads=4):
     print(f"[PRIMARY] holdout MAE={metrics['mae']:.2f} min | RMSE={metrics['rmse']:.2f} | R2={metrics['r2']:.3f}")
     # Final deployment model is retrained on ALL cleaned primary observations.
     final_model,_,final_backend=fit_model(X,y,X,y,weights=weights,threads=threads)
-    metrics["final_training_rows"]=int(len(df)); metrics["final_backend"]=final_backend    return final_model,metrics
+    metrics["final_training_rows"]=int(len(df)); metrics["final_backend"]=final_backend
+    return final_model,metrics
 
 
 def train_all(primary_path: Path, kaggle_zip: Optional[Path], threads=4, max_rows=None):
