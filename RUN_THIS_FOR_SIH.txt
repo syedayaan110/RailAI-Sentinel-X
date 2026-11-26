@@ -1,0 +1,9 @@
+Run the primary prototype from the repository root:
+
+1. Create and activate a virtual environment.
+2. Install dependencies with `python -m pip install -r requirements.txt`.
+3. Run `python RailAI_SentinelX_v5.py --doctor`.
+4. Run `python RailAI_SentinelX_v5.py --self-test`.
+5. Review README.md and docs/SAFETY_AND_VALIDATION.md before using any outputs.
+
+A labelled, licensed dataset is required for meaningful training. Synthetic demo data is for software demonstrations only. This prototype must never control railway signals, brakes, interlocking, or train movement.
