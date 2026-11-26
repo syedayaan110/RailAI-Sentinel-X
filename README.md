@@ -31,7 +31,7 @@ The v5 script is the primary entry point. The adaptive simulation is a separate 
 
 ## Requirements
 
-- Python 3.10+
+- **Python 3.15** (recommended/default; CI also checks Python 3.12)
 - Core: NumPy, pandas, scikit-learn, joblib
 - Optional camera demo: OpenCV and Ultralytics
 - Optional adaptive demo: requests
@@ -63,7 +63,7 @@ python RailAI_SentinelX_v5.py --doctor
 python RailAI_SentinelX_v5.py --self-test
 ```
 
-The built-in software self-test suite completed with **21 passed, 0 failed** in the preparation environment. These checks do not establish prediction accuracy, railway safety, certification, or deployment readiness. GitHub Actions runs syntax and smoke checks on pushes and pull requests.
+The built-in software self-test suite completed with **21 passed, 0 failed** in the preparation environment. GitHub Actions tests Python 3.15 (project default) and Python 3.12 (compatibility check). These checks do not establish prediction accuracy, railway safety, certification, or deployment readiness. GitHub Actions runs syntax and smoke checks on pushes and pull requests.
 
 ## Run the primary v5 prototype
 
